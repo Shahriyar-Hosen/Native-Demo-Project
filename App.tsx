@@ -5,13 +5,14 @@
 
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import WelcomeScreen from './app/screens/WelcomeScreen';
+import Cards from './app/screens/Cards';
 
 function App(): JSX.Element {
-  return <WelcomeScreen />;
+  // return <WelcomeScreen />;
+  // return <ViewImageScreen />;
+  return <Cards />;
   // return (
   //   <View style={styles.mainContainer}>
-  //     {/* <ViewImageScreen /> */}
   //     {/* <Borders /> */}
   //     {/* <Shadows /> */}
   //     {/* <Icons /> */}
