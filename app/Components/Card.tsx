@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
 
 import colors from '../config/colors';
 import AppText from './AppText';
@@ -9,6 +9,22 @@ interface CardCompProps {
   title: string;
   subTitle: string;
   image: ImageSourcePropType;
+  styles?: {
+    img: {
+      width: string;
+      height: number;
+    };
+    title: {
+      fontSize: number;
+      fontWeight: string;
+    };
+    subTittle: {
+      color: string;
+      fontWeight: string;
+      fontSize: number;
+      marginVertical: number;
+    };
+  };
 }
 
 const Card: React.FC<CardCompProps> = ({title, subTitle, image}) => {
