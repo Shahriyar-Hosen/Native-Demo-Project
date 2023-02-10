@@ -4,33 +4,16 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 function App(): JSX.Element {
   return (
-    <View
-      style={{
-        backgroundColor: '#fff',
-        flex: 1,
-        flexDirection: 'row', // horizontal or vertical
-        justifyContent: 'center', // main
-        alignItems: 'center', // secondary
-      }}>
-      <View
-        style={{
-          backgroundColor: 'dodgerblue',
-          width: 100,
-          height: 300,
-          alignSelf: 'flex-start',
-        }}>
-        <Text>hello world</Text>
-      </View>
-      <View style={{backgroundColor: 'gold', width: 100, height: 200}}>
-        <Text>hello world</Text>
-      </View>
-      <View style={{backgroundColor: 'tomato', width: 100, height: 100}}>
-        <Text>hello world</Text>
-      </View>
+    <View style={styles.container}>
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box4} />
+      <View style={styles.box5} />
     </View>
   );
 }
@@ -41,14 +24,36 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row', // horizontal or vertical
     justifyContent: 'center', // main
-    alignItems: 'baseline', // secondary
+    alignItems: 'center', // secondary
+    alignContent: 'center',
+    flexWrap: 'wrap',
   },
-  box: {
-    width: '50%',
-    height: 70,
+  box1: {
     backgroundColor: 'dodgerblue',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: 100,
+    height: 300,
+  },
+  box2: {
+    backgroundColor: 'gold',
+    width: 100,
+    height: 100,
+  },
+  box3: {
+    backgroundColor: 'tomato',
+
+    width: 100,
+    height: 100,
+  },
+  box4: {
+    backgroundColor: 'gray',
+    width: 100,
+    height: 100,
+  },
+  box5: {
+    backgroundColor: 'greenyellow',
+
+    width: 100,
+    height: 100,
   },
 
   text: {
