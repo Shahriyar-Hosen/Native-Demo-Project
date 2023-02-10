@@ -4,22 +4,21 @@
  */
 
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import AppButton from './app/Components/AppButton';
-import AppText from './app/Components/AppText';
+import {StyleSheet} from 'react-native';
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 function App(): JSX.Element {
-  return (
-    <View style={styles.mainContainer}>
-      {/* <WelcomeScreen /> */}
-      {/* <ViewImageScreen /> */}
-      {/* <Borders /> */}
-      {/* <Shadows /> */}
-      {/* <Icons /> */}
-      <AppText>I love React Native</AppText>
-      <AppButton tittle="login" onPress={() => console.log('Tapped')} />
-    </View>
-  );
+  return <WelcomeScreen />;
+  // return (
+  //   <View style={styles.mainContainer}>
+  //     {/* <ViewImageScreen /> */}
+  //     {/* <Borders /> */}
+  //     {/* <Shadows /> */}
+  //     {/* <Icons /> */}
+  //     <AppText>I love React Native</AppText>
+  //     <AppButton tittle="login" onPress={() => console.log('Tapped')} />
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
