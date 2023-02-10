@@ -15,11 +15,11 @@ function App(): JSX.Element {
       {/* <Borders /> */}
       {/* <Shadows /> */}
       {/* <Icons /> */}
-
       <AppText>I love React Native</AppText>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
@@ -28,4 +28,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
 export default App;
