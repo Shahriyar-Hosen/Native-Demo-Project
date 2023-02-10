@@ -4,10 +4,11 @@
  */
 
 import React from 'react';
-import WelcomeScreen from './app/screens/WelcomeScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
 
 function App(): JSX.Element {
-  return <WelcomeScreen />;
+  // <WelcomeScreen />
+  return <ViewImageScreen />;
 }
 
 export default App;
