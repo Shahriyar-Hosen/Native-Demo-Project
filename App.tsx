@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Icons from './app/stylesModule/Icons';
+import AppText from './app/Components/AppText';
 
 function App(): JSX.Element {
   return (
@@ -14,7 +14,9 @@ function App(): JSX.Element {
       {/* <ViewImageScreen /> */}
       {/* <Borders /> */}
       {/* <Shadows /> */}
-      <Icons />
+      {/* <Icons /> */}
+
+      <AppText>I love React Native</AppText>
     </View>
   );
 }
