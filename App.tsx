@@ -5,6 +5,7 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import AppButton from './app/Components/AppButton';
 import AppText from './app/Components/AppText';
 
 function App(): JSX.Element {
@@ -16,6 +17,7 @@ function App(): JSX.Element {
       {/* <Shadows /> */}
       {/* <Icons /> */}
       <AppText>I love React Native</AppText>
+      <AppButton tittle="login" onPress={() => console.log('Tapped')} />
     </View>
   );
 }
