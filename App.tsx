@@ -4,11 +4,24 @@
  */
 
 import React from 'react';
-import ViewImageScreen from './app/screens/ViewImageScreen';
+import {StyleSheet, View} from 'react-native';
+import Borders from './app/stylesModule/Borders';
 
 function App(): JSX.Element {
-  // <WelcomeScreen />
-  return <ViewImageScreen />;
+  return (
+    <View style={styles.mainContainer}>
+      {/* <WelcomeScreen /> */}
+      {/* <ViewImageScreen /> */}
+      <Borders />
+    </View>
+  );
 }
-
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 export default App;
