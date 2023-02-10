@@ -5,14 +5,15 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Borders from './app/stylesModule/Borders';
+import Shadows from './app/stylesModule/Shadows';
 
 function App(): JSX.Element {
   return (
     <View style={styles.mainContainer}>
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-      <Borders />
+      {/* <Borders /> */}
+      <Shadows />
     </View>
   );
 }
