@@ -1,19 +1,21 @@
+/* eslint-disable prettier/prettier */
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
  * @format
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 function App(): JSX.Element {
-  // console.log(Dimensions.get('screen'));
-
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
+      <View style={{backgroundColor: 'dodgerblue', flex: 2}}>
+        <Text>hello world</Text>
+      </View>
+      <View style={{backgroundColor: 'gold', flex: 1}}>
+        <Text>hello world</Text>
+      </View>
+      <View style={{backgroundColor: 'tomato', flex: 1}}>
         <Text>hello world</Text>
       </View>
     </View>
@@ -24,8 +26,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   box: {
     width: '50%',
