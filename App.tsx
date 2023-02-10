@@ -8,11 +8,24 @@ import {StyleSheet, Text, View} from 'react-native';
 
 function App(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <View style={{backgroundColor: 'dodgerblue', width: 100, height: 100}}>
+    <View
+      style={{
+        backgroundColor: '#fff',
+        flex: 1,
+        flexDirection: 'row', // horizontal or vertical
+        justifyContent: 'center', // main
+        alignItems: 'center', // secondary
+      }}>
+      <View
+        style={{
+          backgroundColor: 'dodgerblue',
+          width: 100,
+          height: 300,
+          alignSelf: 'flex-start',
+        }}>
         <Text>hello world</Text>
       </View>
-      <View style={{backgroundColor: 'gold', width: 100, height: 100}}>
+      <View style={{backgroundColor: 'gold', width: 100, height: 200}}>
         <Text>hello world</Text>
       </View>
       <View style={{backgroundColor: 'tomato', width: 100, height: 100}}>
@@ -26,9 +39,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    flexDirection: 'column-reverse',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    flexDirection: 'row', // horizontal or vertical
+    justifyContent: 'center', // main
+    alignItems: 'baseline', // secondary
   },
   box: {
     width: '50%',
