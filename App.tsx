@@ -12,8 +12,6 @@ function App(): JSX.Element {
       <View style={styles.box1} />
       <View style={styles.box2} />
       <View style={styles.box3} />
-      <View style={styles.box4} />
-      <View style={styles.box5} />
     </View>
   );
 }
@@ -26,12 +24,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // main
     alignItems: 'center', // secondary
     alignContent: 'center',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
   },
   box1: {
     backgroundColor: 'dodgerblue',
-    width: 100,
-    height: 300,
+    // flexBasis: 100, // width or height
+    // flex: 1,
+    flexShrink: 1,
+    width: 400,
+    height: 100,
   },
   box2: {
     backgroundColor: 'gold',
