@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     height: 100,
   },
   text: {
-    color: '#000',
+    color: colors.black,
   },
   loginButton: {
     width: '100%',
