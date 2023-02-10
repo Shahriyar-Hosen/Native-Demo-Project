@@ -24,20 +24,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // main
     alignItems: 'center', // secondary
     alignContent: 'center',
-    // flexWrap: 'wrap',
   },
   box1: {
     backgroundColor: 'dodgerblue',
-    // flexBasis: 100, // width or height
-    // flex: 1,
-    flexShrink: 1,
-    width: 400,
+    width: 100,
     height: 100,
   },
   box2: {
     backgroundColor: 'gold',
     width: 100,
     height: 100,
+    position: 'relative',
+    top: 20,
+    left: 20,
   },
   box3: {
     backgroundColor: 'tomato',
