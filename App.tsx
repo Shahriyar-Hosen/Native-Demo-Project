@@ -5,12 +5,13 @@
 
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import Cards from './app/screens/Cards';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 
 function App(): JSX.Element {
   // return <WelcomeScreen />;
   // return <ViewImageScreen />;
-  return <Cards />;
+  // return <Cards />;
+  return <ListingDetailsScreen />;
   // return (
   //   <View style={styles.mainContainer}>
   //     {/* <Borders /> */}
