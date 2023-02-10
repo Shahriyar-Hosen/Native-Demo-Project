@@ -1,14 +1,22 @@
 /* eslint-disable prettier/prettier */
 
 import React from 'react';
-import {ImageBackground, StyleSheet, Text} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 
 const WelcomeScreen = () => {
   return (
     <ImageBackground
       style={styles.background}
       source={require('../../assets/background.jpg')}>
-      <Text style={styles.text}> hello</Text>
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logo}
+          source={require('../../assets/logo-red.png')}
+        />
+        <Text style={styles.text}>Sel What You DOn't Need</Text>
+      </View>
+      <View style={styles.loginButton} />
+      <View style={styles.registerButton} />
     </ImageBackground>
   );
 };
@@ -16,10 +24,30 @@ const WelcomeScreen = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  logoContainer: {
+    position: 'absolute',
+    top: 50,
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100,
+    height: 100,
   },
   text: {
-    fontSize: 24,
-    color: '#333333',
+    color: '#000',
+  },
+  loginButton: {
+    width: '100%',
+    height: 70,
+    backgroundColor: '#fc5c65',
+  },
+  registerButton: {
+    width: '100%',
+    height: 70,
+    backgroundColor: '#4ecdc4',
   },
 });
 
