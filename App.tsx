@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Shadows from './app/stylesModule/Shadows';
+import Icons from './app/stylesModule/Icons';
 
 function App(): JSX.Element {
   return (
@@ -13,7 +13,8 @@ function App(): JSX.Element {
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
       {/* <Borders /> */}
-      <Shadows />
+      {/* <Shadows /> */}
+      <Icons />
     </View>
   );
 }
