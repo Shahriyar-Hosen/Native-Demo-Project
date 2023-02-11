@@ -5,7 +5,6 @@
 import React from 'react';
 
 import {StyleSheet, View} from 'react-native';
-import MessagesScreen from './app/screens/MessagesScreen';
 
 const App = () => {
   // return <WelcomeScreen />;
@@ -15,7 +14,8 @@ const App = () => {
   // return <ListingDetailsScreen />;
   return (
     <View style={styles.mainContainer}>
-      <MessagesScreen />
+      {/* <Icons size={100} name="email" /> */}
+      {/* <MessagesScreen /> */}
     </View>
   );
 };
