@@ -1,5 +1,11 @@
 import React from 'react';
-import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 
 import colors from '../config/colors';
 import AppText from './AppText';
@@ -8,17 +14,25 @@ interface ListItemProps {
   title: string;
   subTitle: string;
   image: ImageSourcePropType;
+  onPress: () => void;
 }
 
-const ListItem: React.FC<ListItemProps> = ({title, subTitle, image}) => {
+const ListItem: React.FC<ListItemProps> = ({
+  title,
+  subTitle,
+  image,
+  onPress,
+}) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image} />
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
