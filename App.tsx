@@ -2,7 +2,8 @@
  * @format
  */
 import React from 'react';
-import ListingsScreen from './app/screens/ListingsScreen';
+import AppTextInput from './app/Components/AppTextInput';
+import Screen from './app/Components/Screen';
 
 const App = () => {
   // return <WelcomeScreen />;
@@ -10,15 +11,12 @@ const App = () => {
   // return <MessagesScreen />;
   // return <ListingDetailsScreen />;
   // return <AccountScreen />;
-  return <ListingsScreen />;
-  // return <View style={styles.mainContainer}>{/* <MessagesScreen /> */}</View>;
+  // return <ListingsScreen />;
+  return (
+    <Screen>
+      <AppTextInput icon="email" placeholder="user name" />
+    </Screen>
+  );
 };
-
-// const styles = StyleSheet.create({
-//   mainContainer: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//   },
-// });
 
 export default App;

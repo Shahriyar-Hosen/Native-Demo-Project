@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import colors from '../config/colors';
 
-interface textProps extends PropsWithChildren {
+interface TextProps extends PropsWithChildren {
   style:
     | TextStyle
     | Falsy
@@ -19,7 +19,7 @@ interface textProps extends PropsWithChildren {
     | RecursiveArray<TextStyle | Falsy | RegisteredStyle<TextStyle>>;
 }
 
-const AppText: React.FC<textProps> = ({children, style}) => {
+const AppText: React.FC<TextProps> = ({children, style}) => {
   return <Text style={[styles.text, style]}>{children}</Text>;
 };
 
