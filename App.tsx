@@ -3,31 +3,27 @@
  */
 
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import ViewImageScreen from './app/screens/ViewImageScreen';
+
+import {StyleSheet, View} from 'react-native';
+import MessagesScreen from './app/screens/MessagesScreen';
 
 const App = () => {
   // return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  // return <ViewImageScreen />;
+  // return <MessagesScreen />;
   // return <Cards />;
   // return <ListingDetailsScreen />;
-  // return (
-  //   <View style={styles.mainContainer}>
-  //     {/* <Borders /> */}
-  //     {/* <Shadows /> */}
-  //     {/* <Icons /> */}
-  //     <AppText>I love React Native</AppText>
-  //     <AppButton tittle="login" onPress={() => console.log('Tapped')} />
-  //   </View>
-  // );
+  return (
+    <View style={styles.mainContainer}>
+      <MessagesScreen />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
