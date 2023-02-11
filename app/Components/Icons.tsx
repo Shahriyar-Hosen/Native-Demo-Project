@@ -4,14 +4,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export interface IconsProps {
   name: string;
-  size: number;
+  size?: number;
   iconColor?: string;
   backgroundColor?: string;
 }
 
 const Icons = ({
   name,
-  size,
+  size = 40,
   backgroundColor = '#000',
   iconColor = '#fff',
 }: IconsProps) => {
