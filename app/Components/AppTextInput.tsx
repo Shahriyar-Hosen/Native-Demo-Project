@@ -1,8 +1,8 @@
 import React, {FC, PropsWithChildren} from 'react';
-import {Platform, StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import colors from '../config/colors';
+import {defaultStyles} from '../config/styles';
 
 interface TextInputProps extends PropsWithChildren {
   icon?: string;
@@ -14,7 +14,7 @@ const AppTextInput: FC<TextInputProps> = ({icon, ...otherProps}) => {
     <View style={styles.container}>
       {icon && <Icon name={icon} size={20} color={colors.medium} />}
       <TextInput
-        style={styles.textInput}
+        style={defaultStyles.text}
         {...otherProps}
         placeholderTextColor={colors.medium}
       />
@@ -37,11 +37,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
-  },
-  textInput: {
-    fontSize: 18,
-    color: colors.dark,
-    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
   },
 });
 

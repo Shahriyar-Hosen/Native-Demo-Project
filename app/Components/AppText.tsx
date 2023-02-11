@@ -2,14 +2,13 @@ import React, {PropsWithChildren} from 'react';
 
 import {
   Falsy,
-  Platform,
   RecursiveArray,
   RegisteredStyle,
-  StyleSheet,
   Text,
   TextStyle,
 } from 'react-native';
-import colors from '../config/colors';
+
+import {defaultStyles} from '../config/styles';
 
 interface TextProps extends PropsWithChildren {
   style:
@@ -20,15 +19,7 @@ interface TextProps extends PropsWithChildren {
 }
 
 const AppText: React.FC<TextProps> = ({children, style}) => {
-  return <Text style={[styles.text, style]}>{children}</Text>;
+  return <Text style={[defaultStyles.text, style]}>{children}</Text>;
 };
-
-const styles = StyleSheet.create({
-  text: {
-    color: colors.black,
-    fontSize: 18,
-    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
-  },
-});
 
 export default AppText;
