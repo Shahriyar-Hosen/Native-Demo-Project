@@ -1,14 +1,16 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../config/colors';
 
-const ListItemDeleteAction: () => JSX.Element = () => {
+const ListItemDeleteAction = ({onPress}: {onPress: () => void}) => {
   return (
-    <View style={styles.container}>
-      <Icon name="trash-can" size={35} color={colors.white} />
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <Icon name="trash-can" size={35} color={colors.white} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
