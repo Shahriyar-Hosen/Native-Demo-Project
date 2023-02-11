@@ -29,6 +29,7 @@ export interface MessageProps {
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message: MessageProps) => {
     const newArray = messages.filter(m => m.id !== message.id);
@@ -52,6 +53,8 @@ const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => setMessages(initialMessages)}
       />
     </Screen>
   );
