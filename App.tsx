@@ -1,18 +1,16 @@
 /**
  * @format
  */
-
 import React from 'react';
-
-import AccountScreen from './app/screens/AccountScreen';
+import ListingsScreen from './app/screens/ListingsScreen';
 
 const App = () => {
   // return <WelcomeScreen />;
   // return <ViewImageScreen />;
   // return <MessagesScreen />;
   // return <ListingDetailsScreen />;
-  return <AccountScreen />;
-  // return <Cards />;
+  // return <AccountScreen />;
+  return <ListingsScreen />;
   // return <View style={styles.mainContainer}>{/* <MessagesScreen /> */}</View>;
 };
 
