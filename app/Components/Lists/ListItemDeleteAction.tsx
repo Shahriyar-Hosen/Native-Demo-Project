@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import colors from '../config/colors';
+import {colors} from '../../config';
 
 const ListItemDeleteAction = ({onPress}: {onPress: () => void}) => {
   return (
