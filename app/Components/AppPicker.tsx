@@ -1,6 +1,7 @@
 import React, {FC, PropsWithChildren, useState} from 'react';
 import {
   Button,
+  FlatList,
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -9,14 +10,30 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../config/colors';
 import AppText from './AppText';
+import PickerItem from './PickerItem';
 import Screen from './Screen';
 
 interface PickerProps extends PropsWithChildren {
   icon?: string;
   placeholder: string;
+  items: {
+    label: string;
+    value: number;
+  }[];
+  selectedItem: {
+    label: string;
+    value: number;
+  };
+  onSelectItem: (item: any) => void;
 }
 
-const AppPicker: FC<PickerProps> = ({icon, placeholder}) => {
+const AppPicker: FC<PickerProps> = ({
+  icon,
+  items,
+  onSelectItem,
+  placeholder,
+  selectedItem,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -30,7 +47,9 @@ const AppPicker: FC<PickerProps> = ({icon, placeholder}) => {
               color={colors.medium}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <Icon
             style={styles.icon}
             name="chevron-down"
@@ -41,7 +60,24 @@ const AppPicker: FC<PickerProps> = ({icon, placeholder}) => {
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
-          <Button title="Close" onPress={() => setModalVisible(false)} />
+          <Button
+            color={colors.primary}
+            title="Close"
+            onPress={() => setModalVisible(false)}
+          />
+          <FlatList
+            data={items}
+            keyExtractor={item => item.value.toString()}
+            renderItem={({item}) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
         </Screen>
       </Modal>
     </>
