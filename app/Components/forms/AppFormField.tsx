@@ -8,6 +8,9 @@ interface TextProps extends TextInputProps {
   name: string;
   error: string | undefined;
   visible: boolean | undefined;
+  maxLength?: number | undefined;
+  multiline?: boolean | undefined;
+  numberOfLines?: number | undefined;
 }
 const AppFormField = ({name, error, visible, ...otherProps}: TextProps) => {
   const {setFieldTouched, handleChange} = useFormikContext();

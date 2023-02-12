@@ -13,14 +13,14 @@ import {colors} from '../../config';
 import {AppText, Screen} from '../common';
 import PickerItem from '../PickerItem';
 
-interface PickerProps extends PropsWithChildren {
+export interface PickerProps extends PropsWithChildren {
   icon?: string;
   placeholder: string;
   items: {
     label: string;
     value: number;
   }[];
-  selectedItem: {
+  selectedItem?: {
     label: string;
     value: number;
   };
