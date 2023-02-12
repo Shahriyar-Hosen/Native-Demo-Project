@@ -16,10 +16,15 @@ interface TextProps extends PropsWithChildren {
     | Falsy
     | RegisteredStyle<TextStyle>
     | RecursiveArray<TextStyle | Falsy | RegisteredStyle<TextStyle>>;
+  numberOfLines?: number;
 }
 
-const AppText: React.FC<TextProps> = ({children, style}) => {
-  return <Text style={[defaultStyles.text, style]}>{children}</Text>;
+const AppText: React.FC<TextProps> = ({children, style, numberOfLines}) => {
+  return (
+    <Text numberOfLines={numberOfLines} style={[defaultStyles.text, style]}>
+      {children}
+    </Text>
+  );
 };
 
 export default AppText;
