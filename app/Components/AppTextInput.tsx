@@ -4,9 +4,17 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../config/colors';
 import {defaultStyles} from '../config/styles';
 
-interface TextInputProps extends PropsWithChildren {
+export interface TextInputProps extends PropsWithChildren {
   icon?: string;
   placeholder?: string;
+  autoCapitalize?: string;
+  autoCorrect?: boolean;
+  keyboardType?: string;
+  name?: string;
+  textContentType?: string;
+  secureTextEntry?: boolean;
+  onChangeText?: Function;
+  onBlur?: () => void;
 }
 
 const AppTextInput: FC<TextInputProps> = ({icon, ...otherProps}) => {
