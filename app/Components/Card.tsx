@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
+import {colors} from '../config';
 
-import colors from '../config/colors';
-import AppText from './AppText';
+import {AppText} from './common';
 
 interface CardCompProps {
   title: string;

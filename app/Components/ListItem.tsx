@@ -7,9 +7,9 @@ import {
   View,
 } from 'react-native';
 import {GestureHandlerRootView, Swipeable} from 'react-native-gesture-handler';
+import {colors} from '../config';
 
-import colors from '../config/colors';
-import AppText from './AppText';
+import {AppText} from './common';
 
 interface ListItemProps {
   title: string;

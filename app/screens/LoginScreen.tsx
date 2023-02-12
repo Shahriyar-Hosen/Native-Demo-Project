@@ -2,9 +2,8 @@ import {Formik} from 'formik';
 import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import * as Yup from 'yup';
-import AppFormField from '../Components/AppFormField';
-import Screen from '../Components/Screen';
-import SubmitButton from '../Components/SubmitButton';
+import Screen from '../Components/common/Screen';
+import {AppFormField, SubmitButton} from '../Components/forms';
 
 interface LoginFormProps {
   email: string;

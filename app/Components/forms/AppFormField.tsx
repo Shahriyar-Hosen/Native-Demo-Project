@@ -1,6 +1,7 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
-import AppTextInput, {TextInputProps} from './AppTextInput';
+import AppTextInput, {TextInputProps} from '../common/AppTextInput';
+
 import ErrorMessage from './ErrorMessage';
 
 interface TextProps extends TextInputProps {

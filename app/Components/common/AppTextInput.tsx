@@ -1,8 +1,7 @@
 import React, {FC, PropsWithChildren} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import colors from '../config/colors';
-import {defaultStyles} from '../config/styles';
+import {colors, defaultStyles} from '../../config';
 
 export interface TextInputProps extends PropsWithChildren {
   icon?: string;

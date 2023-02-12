@@ -8,7 +8,7 @@ import {
   TextStyle,
 } from 'react-native';
 
-import {defaultStyles} from '../config/styles';
+import {defaultStyles} from '../../config';
 
 interface TextProps extends PropsWithChildren {
   style?:

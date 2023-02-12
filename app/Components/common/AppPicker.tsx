@@ -8,10 +8,10 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import colors from '../config/colors';
-import AppText from './AppText';
-import PickerItem from './PickerItem';
-import Screen from './Screen';
+import {colors} from '../../config';
+
+import {AppText, Screen} from '../common';
+import PickerItem from '../PickerItem';
 
 interface PickerProps extends PropsWithChildren {
   icon?: string;
