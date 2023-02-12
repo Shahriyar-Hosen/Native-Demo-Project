@@ -18,7 +18,7 @@ const categories = [
   {label: 'Camera', value: 3},
 ];
 
-function ListingEditScreen() {
+const ListingEditScreen = () => {
   return (
     <Screen style={styles.container}>
       <Formik
@@ -46,6 +46,7 @@ function ListingEditScreen() {
               placeholder="Price"
               error={errors.price}
               visible={touched.price}
+              width={120}
             />
             <FormPicker
               items={categories}
@@ -53,6 +54,7 @@ function ListingEditScreen() {
               placeholder="Category"
               error={errors.category}
               visible={touched.category}
+              width="50%"
             />
             <AppFormField
               maxLength={255}
@@ -69,7 +71,7 @@ function ListingEditScreen() {
       </Formik>
     </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

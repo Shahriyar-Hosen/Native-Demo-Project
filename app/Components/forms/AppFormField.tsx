@@ -12,7 +12,13 @@ interface TextProps extends TextInputProps {
   multiline?: boolean | undefined;
   numberOfLines?: number | undefined;
 }
-const AppFormField = ({name, error, visible, ...otherProps}: TextProps) => {
+const AppFormField = ({
+  name,
+  width,
+  error,
+  visible,
+  ...otherProps
+}: TextProps) => {
   const {setFieldTouched, handleChange} = useFormikContext();
 
   return (
@@ -21,6 +27,7 @@ const AppFormField = ({name, error, visible, ...otherProps}: TextProps) => {
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
         name={name}
+        width={width}
         {...otherProps}
       />
       <ErrorMessage error={error} visible={visible} />

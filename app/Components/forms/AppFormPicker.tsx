@@ -17,9 +17,17 @@ interface TextProps {
     label: string;
     value: number;
   };
+  width?: number | string | undefined;
 }
 
-function AppFormPicker({items, name, placeholder, error, visible}: TextProps) {
+function AppFormPicker({
+  items,
+  name,
+  placeholder,
+  error,
+  visible,
+  width,
+}: TextProps) {
   const {setFieldValue, values} = useFormikContext();
 
   return (
@@ -29,6 +37,7 @@ function AppFormPicker({items, name, placeholder, error, visible}: TextProps) {
         onSelectItem={item => setFieldValue(name, item)}
         placeholder={placeholder}
         selectedItem={values[name]}
+        width={width}
       />
       <ErrorMessage error={error} visible={visible} />
     </>

@@ -4,21 +4,26 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors, defaultStyles} from '../../config';
 
 export interface TextInputProps extends PropsWithChildren {
+  name?: string;
   icon?: string;
+  width?: number | string | undefined;
   placeholder?: string;
   autoCapitalize?: string;
   autoCorrect?: boolean;
   keyboardType?: string;
-  name?: string;
   textContentType?: string;
   secureTextEntry?: boolean;
   onChangeText?: Function;
   onBlur?: () => void;
 }
 
-const AppTextInput: FC<TextInputProps> = ({icon, ...otherProps}) => {
+const AppTextInput: FC<TextInputProps> = ({
+  icon,
+  width = '100%',
+  ...otherProps
+}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width}]}>
       {icon && (
         <Icon style={styles.icon} name={icon} size={20} color={colors.medium} />
       )}
@@ -36,7 +41,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 15,
     paddingTop: 5,
     paddingBottom: 5,

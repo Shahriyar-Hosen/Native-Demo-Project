@@ -25,6 +25,7 @@ export interface PickerProps extends PropsWithChildren {
     value: number;
   };
   onSelectItem: (item: any) => void;
+  width?: number | string | undefined;
 }
 
 const AppPicker: FC<PickerProps> = ({
@@ -33,12 +34,13 @@ const AppPicker: FC<PickerProps> = ({
   onSelectItem,
   placeholder,
   selectedItem,
+  width = '100%',
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, {width}]}>
           {icon && (
             <Icon
               style={styles.icon}
@@ -92,7 +94,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 15,
     marginVertical: 10,
     justifyContent: 'flex-start',
