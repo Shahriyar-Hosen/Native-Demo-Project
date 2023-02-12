@@ -11,7 +11,7 @@ import {
 import {defaultStyles} from '../config/styles';
 
 interface TextProps extends PropsWithChildren {
-  style:
+  style?:
     | TextStyle
     | Falsy
     | RegisteredStyle<TextStyle>

@@ -12,7 +12,9 @@ interface TextInputProps extends PropsWithChildren {
 const AppTextInput: FC<TextInputProps> = ({icon, ...otherProps}) => {
   return (
     <View style={styles.container}>
-      {icon && <Icon name={icon} size={20} color={colors.medium} />}
+      {icon && (
+        <Icon style={styles.icon} name={icon} size={20} color={colors.medium} />
+      )}
       <TextInput
         style={defaultStyles.text}
         {...otherProps}
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    marginRight: 10,
+    marginRight: 5,
   },
 });
 

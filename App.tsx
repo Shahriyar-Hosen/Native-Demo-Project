@@ -2,6 +2,7 @@
  * @format
  */
 import React from 'react';
+import AppPicker from './app/Components/AppPicker';
 import AppTextInput from './app/Components/AppTextInput';
 import Screen from './app/Components/Screen';
 
@@ -14,6 +15,7 @@ const App = () => {
   // return <ListingsScreen />;
   return (
     <Screen>
+      <AppPicker icon="apps" placeholder="Category" />
       <AppTextInput icon="email" placeholder="user name" />
     </Screen>
   );
