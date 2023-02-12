@@ -16,7 +16,7 @@ export interface ScreenProps {
 const Screen = ({children, style}: ScreenProps) => {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      <View style={style}>{children}</View>
+      <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>
   );
 };
@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
+  view: {
+    flex: 1,
   },
 });
 
