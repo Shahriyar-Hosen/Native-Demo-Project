@@ -7,8 +7,9 @@ import {
   View,
 } from 'react-native';
 import {GestureHandlerRootView, Swipeable} from 'react-native-gesture-handler';
-import {colors} from '../../config';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {colors} from '../../config';
 import {AppText} from '../common';
 
 interface ListItemProps {
@@ -41,6 +42,7 @@ const ListItem: FC<ListItemProps> = ({
                 <AppText style={styles.subTitle}>{subTitle}</AppText>
               )}
             </View>
+            <Icon color={colors.medium} name="chevron-right" size={25} />
           </View>
         </TouchableHighlight>
       </Swipeable>
@@ -50,6 +52,7 @@ const ListItem: FC<ListItemProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flexDirection: 'row',
     padding: 15,
     backgroundColor: colors.white,
@@ -63,6 +66,7 @@ const styles = StyleSheet.create({
   detailsContainer: {
     marginLeft: 10,
     justifyContent: 'center',
+    flex: 1,
   },
 
   subTitle: {
