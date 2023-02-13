@@ -1,12 +1,17 @@
 /**
  * @format
  */
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 
-import Navigator from './app/stylesModule/Navigator';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 const App = () => {
-  return <Navigator />;
+  return (
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
+  );
 };
 
 export default App;

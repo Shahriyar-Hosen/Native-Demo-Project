@@ -10,6 +10,7 @@ import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {AppText, Screen} from '../Components/common';
+import AuthNavigator from '../navigation/AuthNavigator';
 
 const Tweets = ({navigation}) => (
   <Screen>
@@ -88,7 +89,7 @@ const TabNavigator = () => {
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   );
 };

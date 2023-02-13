@@ -15,7 +15,7 @@ const VALIDATION_SCHEMA = Yup.object().shape({
   password: Yup.string().required().min(4).label('Password'),
 });
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const initialValues: LoginFormProps = {
     email: '',
     password: '',
