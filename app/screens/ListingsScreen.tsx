@@ -19,7 +19,7 @@ const listings = [
   },
 ];
 
-const ListingsScreen: () => JSX.Element = () => {
+const ListingsScreen = ({navigation}) => {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -30,6 +30,7 @@ const ListingsScreen: () => JSX.Element = () => {
             title={item.title}
             subTitle={'$' + item.price}
             image={item.image}
+            onPress={() => navigation.navigate('ListingDetails', item)}
           />
         )}
       />

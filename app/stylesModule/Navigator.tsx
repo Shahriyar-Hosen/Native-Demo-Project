@@ -4,7 +4,7 @@ import {
   ParamListBase,
   RouteProp,
 } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -34,7 +34,7 @@ const Account = () => (
   </Screen>
 );
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const StackNavigator = () => (
   <Stack.Navigator>
