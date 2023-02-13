@@ -104,7 +104,7 @@ const ListingEditScreen = () => {
     <Screen style={styles.container}>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(location)}
+        onSubmit={values => console.log(location, values)}
         validationSchema={validationSchema}>
         {({errors, touched}) => (
           <>
