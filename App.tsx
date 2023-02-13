@@ -10,26 +10,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-
-interface OptionsProps {
-  saveToPhotos: boolean;
-  mediaType: string;
-}
+import {launchImageLibrary} from 'react-native-image-picker';
+import ImageInput from './app/Components/common/ImageInput';
 
 const App = () => {
-  const [cameraPhoto, setCameraPhoto] = useState('');
-  const [galleryPhoto, setGalleryPhoto] = useState('');
   const [imageUri, setImageUri] = useState('');
-
-  let options: OptionsProps = {
-    saveToPhotos: true,
-    mediaType: 'photo',
-  };
 
   const requestPermission = async () => {
     const status = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
+      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
     );
     console.log('Permissions Status:-', status);
   };
@@ -38,18 +27,12 @@ const App = () => {
     requestPermission();
   }, []);
 
-  const openCamera = async () => {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      const result = await launchCamera(options);
-      setCameraPhoto(result.assets[0].uri);
-    }
-  };
   const selectImage = async () => {
     try {
-      const result = await launchImageLibrary(galleryPhoto);
+      const result = await launchImageLibrary({
+        mediaType: 'photo',
+        quality: 0.5,
+      });
       if (!result.didCancel) {
         if (result.assets !== undefined) {
           let url = (result.assets !== undefined && result.assets[0].uri) || '';
@@ -60,21 +43,11 @@ const App = () => {
       console.log('Error Reading Image', error);
     }
   };
-  const openGallery = async () => {
-    selectImage();
-    // const result = await launchImageLibrary(galleryPhoto);
-    // setGalleryPhoto(result.assets[0].uri);
-  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={openCamera} style={styles.button}>
-        <Text style={styles.buttonText}>Open Camera</Text>
-      </TouchableOpacity>
-      {cameraPhoto && (
-        <Image style={styles.imageStyle} source={{uri: cameraPhoto}} />
-      )}
-
-      <TouchableOpacity onPress={openGallery} style={styles.button}>
+      <ImageInput imageUri={imageUri} onChangeImage={uri => setImageUri(uri)} />
+      <TouchableOpacity onPress={selectImage} style={styles.button}>
         <Text style={styles.buttonText}>Open Gallery</Text>
       </TouchableOpacity>
 
