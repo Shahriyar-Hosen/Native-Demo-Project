@@ -7,6 +7,7 @@ import CategoryPickerItem from '../Components/CategoryPickerItem';
 import {Screen} from '../Components/common';
 import {AppFormField, FormPicker, SubmitButton} from '../Components/forms';
 import FormImagePicker from '../Components/forms/FormImagePicker';
+import useLocation from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -97,11 +98,13 @@ const initialValues: ListingEditProps = {
 };
 
 const ListingEditScreen = () => {
+  const location = useLocation();
+
   return (
     <Screen style={styles.container}>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}
+        onSubmit={values => console.log(location)}
         validationSchema={validationSchema}>
         {({errors, touched}) => (
           <>
