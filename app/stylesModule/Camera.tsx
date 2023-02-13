@@ -1,7 +1,4 @@
-/**
- * @format
- */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   PermissionsAndroid,
@@ -12,31 +9,14 @@ import {
 } from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-interface OptionsProps {
-  saveToPhotos: boolean;
-  mediaType: string;
-}
-
-const App = () => {
+const Camera = () => {
   const [cameraPhoto, setCameraPhoto] = useState('');
   const [galleryPhoto, setGalleryPhoto] = useState('');
-  const [imageUri, setImageUri] = useState('');
 
-  let options: OptionsProps = {
+  let options = {
     saveToPhotos: true,
     mediaType: 'photo',
   };
-
-  const requestPermission = async () => {
-    const status = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    );
-    console.log('Permissions Status:-', status);
-  };
-
-  useEffect(() => {
-    requestPermission();
-  }, []);
 
   const openCamera = async () => {
     const granted = await PermissionsAndroid.request(
@@ -47,24 +27,12 @@ const App = () => {
       setCameraPhoto(result.assets[0].uri);
     }
   };
-  const selectImage = async () => {
-    try {
-      const result = await launchImageLibrary(galleryPhoto);
-      if (!result.didCancel) {
-        if (result.assets !== undefined) {
-          let url = (result.assets !== undefined && result.assets[0].uri) || '';
-          setImageUri(url);
-        }
-      }
-    } catch (error) {
-      console.log('Error Reading Image', error);
-    }
-  };
+
   const openGallery = async () => {
-    selectImage();
-    // const result = await launchImageLibrary(galleryPhoto);
-    // setGalleryPhoto(result.assets[0].uri);
+    const result = await launchImageLibrary(options);
+    setGalleryPhoto(result.assets[0].uri);
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={openCamera} style={styles.button}>
@@ -78,10 +46,11 @@ const App = () => {
         <Text style={styles.buttonText}>Open Gallery</Text>
       </TouchableOpacity>
 
-      {imageUri && <Image style={styles.imageStyle} source={{uri: imageUri}} />}
+      {galleryPhoto && (
+        <Image style={styles.imageStyle} source={{uri: galleryPhoto}} />
+      )}
     </View>
   );
-  // return <ListingEditScreen />;
 };
 
 const styles = StyleSheet.create({
@@ -111,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Camera;
