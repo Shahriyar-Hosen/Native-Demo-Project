@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {AppText} from '../common';
 
 interface ErrorMessageProps {
-  error: string | undefined;
+  error: string | string[] | undefined;
   visible: boolean | undefined;
 }
 

@@ -13,8 +13,6 @@ export interface ImagePickerProps {
 const FormImagePicker = ({name, error, visible}: ImagePickerProps) => {
   const {setFieldValue, values} = useFormikContext();
 
-  // const formValues = values as ListingEditProps;
-
   const imageUris = values[name];
 
   const handleAdd = (uri: string) => {

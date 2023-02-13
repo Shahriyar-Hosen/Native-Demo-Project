@@ -8,7 +8,11 @@ export interface ImageInputLIstProps {
   onAddImage: (uri: string) => void;
 }
 
-const ImageInputList = ({imageUris = [], onRemoveImage, onAddImage}) => {
+const ImageInputList = ({
+  imageUris = [],
+  onRemoveImage,
+  onAddImage,
+}: ImageInputLIstProps) => {
   const scrollView = useRef();
 
   return (
