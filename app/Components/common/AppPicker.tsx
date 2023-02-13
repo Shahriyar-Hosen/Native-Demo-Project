@@ -11,21 +11,30 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors} from '../../config';
 
 import {AppText, Screen} from '../common';
-import PickerItem from '../PickerItem';
+import PickerItem, {PickerItemProps} from '../PickerItem';
 
 export interface PickerProps extends PropsWithChildren {
+  numberOfColumns?: number;
   icon?: string;
   placeholder: string;
   items: {
     label: string;
     value: number;
+    backgroundColor: string;
+    icon: string;
   }[];
   selectedItem?: {
     label: string;
     value: number;
   };
-  onSelectItem: (item: any) => void;
+  onSelectItem: (item: {
+    label: string;
+    value: number;
+    backgroundColor: string;
+    icon: string;
+  }) => void;
   width?: number | string | undefined;
+  PickerItemComponent?: FC<PickerItemProps>;
 }
 
 const AppPicker: FC<PickerProps> = ({
@@ -35,8 +44,11 @@ const AppPicker: FC<PickerProps> = ({
   placeholder,
   selectedItem,
   width = '100%',
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
@@ -63,19 +75,21 @@ const AppPicker: FC<PickerProps> = ({
           />
         </View>
       </TouchableWithoutFeedback>
+
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button
-            color={colors.primary}
+            color={colors.secondary}
             title="Close"
             onPress={() => setModalVisible(false)}
           />
           <FlatList
             data={items}
             keyExtractor={item => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({item}) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);

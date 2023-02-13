@@ -1,6 +1,7 @@
 import {useFormikContext} from 'formik';
-import React from 'react';
+import React, {FC} from 'react';
 import AppPicker from '../common/AppPicker';
+import {PickerItemProps} from '../PickerItem';
 import ErrorMessage from './ErrorMessage';
 
 interface TextProps {
@@ -12,12 +13,16 @@ interface TextProps {
   items: {
     label: string;
     value: number;
+    backgroundColor: string;
+    icon: string;
   }[];
   selectedItem?: {
     label: string;
     value: number;
   };
   width?: number | string | undefined;
+  PickerItemComponent?: FC<PickerItemProps>;
+  numberOfColumns?: number;
 }
 
 function AppFormPicker({
@@ -27,6 +32,8 @@ function AppFormPicker({
   error,
   visible,
   width,
+  PickerItemComponent,
+  numberOfColumns,
 }: TextProps) {
   const {setFieldValue, values} = useFormikContext();
 
@@ -38,6 +45,8 @@ function AppFormPicker({
         placeholder={placeholder}
         selectedItem={values[name]}
         width={width}
+        PickerItemComponent={PickerItemComponent}
+        numberOfColumns={numberOfColumns}
       />
       <ErrorMessage error={error} visible={visible} />
     </>
