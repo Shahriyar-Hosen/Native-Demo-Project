@@ -6,12 +6,14 @@ import CategoryPickerItem from '../Components/CategoryPickerItem';
 
 import {Screen} from '../Components/common';
 import {AppFormField, FormPicker, SubmitButton} from '../Components/forms';
+import FormImagePicker from '../Components/forms/FormImagePicker';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().min(1).max(10000).label('Price'),
   description: Yup.string().label('Description'),
   category: Yup.object().required().nullable().label('Category'),
+  images: Yup.array().min(1, 'Please select at least one image'),
 });
 
 const categories = [
@@ -71,20 +73,44 @@ const categories = [
   },
 ];
 
+export interface ListingEditProps {
+  title: string;
+  price: string;
+  description: string;
+  images: string[];
+  category:
+    | null
+    | {
+        backgroundColor: string;
+        icon: string;
+        label: string;
+        value: number;
+      }[];
+}
+
+const initialValues: ListingEditProps = {
+  title: '',
+  price: '',
+  description: '',
+  category: null,
+  images: [],
+};
+
 const ListingEditScreen = () => {
   return (
     <Screen style={styles.container}>
       <Formik
-        initialValues={{
-          title: '',
-          price: '',
-          description: '',
-          category: null,
-        }}
+        initialValues={initialValues}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}>
         {({errors, touched}) => (
           <>
+            <FormImagePicker
+              name="images"
+              error={errors.images}
+              visible={touched.images}
+            />
+
             <AppFormField
               maxLength={255}
               name="title"

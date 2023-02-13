@@ -8,7 +8,7 @@ export interface ImageInputLIstProps {
   onAddImage: (uri: string) => void;
 }
 
-const ImageInputList = ({imageUris = [''], onRemoveImage, onAddImage}) => {
+const ImageInputList = ({imageUris = [], onRemoveImage, onAddImage}) => {
   const scrollView = useRef();
 
   return (
@@ -20,12 +20,10 @@ const ImageInputList = ({imageUris = [''], onRemoveImage, onAddImage}) => {
         <View style={styles.container}>
           {imageUris.map(uri => (
             <View key={uri} style={styles.image}>
-              {uri.length !== 0 && (
-                <ImageInput
-                  imageUri={uri}
-                  onChangeImage={() => onRemoveImage(uri)}
-                />
-              )}
+              <ImageInput
+                imageUri={uri}
+                onChangeImage={() => onRemoveImage(uri)}
+              />
             </View>
           ))}
           <ImageInput onChangeImage={uri => onAddImage(uri)} />
